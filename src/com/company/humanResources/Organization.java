@@ -143,4 +143,18 @@ public class Organization {
         }
         return null;
     }
+    
+        public int getEmployeesTaxes(){
+        int res = 0;
+        Employee[] employees = null;
+        for(int i = 0; i < size; i++){
+            if(departments[i].getSize() == 0)
+                continue;
+            employees = departments[i].getEmployees();
+            for(int j = 0; j < employees.length; j++){
+                res += employees[j].getSalary();
+            }
+        }
+        return (int)(res * 0.13);
+    }
 }
